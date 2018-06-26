@@ -42,10 +42,12 @@ gameScene.update = function() {
   direction == "UP" ? enem.y -=1: enem.y +=1
   if (cursors.left.isDown) {
     if (!(player.x == 15)) {
+        player.flipX = true;
       player.x -= 5;
     }
   } else if (cursors.right.isDown) {
     if (!(player.x == 585)) {
+        player.flipX = false;
       //if(!(player.y >= 270)){
       //if(!(player.x <= 50)){
       player.x += 5;
@@ -80,11 +82,6 @@ gameScene.update = function() {
   }
 };
 
-function moveEnemyUp(enemy) {
-  while (enemy.y != 100) {
-      enemy.y -= 1;
-  }
-}
 
 //config creation
 let config = {
